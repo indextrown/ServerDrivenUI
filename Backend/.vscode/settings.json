@@ -1,0 +1,13 @@
+// 자동완성 제거
+{
+  "editor.quickSuggestions": {
+    "comments": "off",
+    "strings": "off",
+    "other": "off"
+  },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.inlineSuggest.enabled": false,
+  "editor.suggest.showWords": false,
+  "editor.suggest.showSnippets": false
+}

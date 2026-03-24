@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Java (current file)",
+      "type": "shell",
+      "command": "cd \"${fileDirname}\" && javac Main.java && java Main",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
