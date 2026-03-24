@@ -9,21 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let service = WebService()
+    @StateObject private var vm = PetListViewModel(servicce: LocalService())
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-        .task {
-            do {
-                let result = try await service.load(resource: Constants.Urls.petListing)
-                print(result)
-            } catch {
-                print(error)
+        NavigationView {
+            ScrollView {
+                ForEach(vm.components, id: \.uniqueId) { component in
+                    component.render()
+                }
+                .navigationTitle("Pets")
+            }
+            .task {
+                await vm.load()
             }
         }
     }

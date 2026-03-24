@@ -12,10 +12,13 @@ enum NetworkError: Error {
     case invalidServerResponse
 }
 
-class WebService {
-    func load(resource: String) async throws -> ScreenModel {
+class WebService: NetworkService {
+    func load(_ resource: String) async throws -> ScreenModel {
         
-        guard let url = URL(string: resource) else {
+//        guard let url = URL(string: resource) else {
+//            throw NetworkError.invalidUrl
+//        }
+        guard let url = Constants.ScreenResources.resource(for: resource) else {
             throw NetworkError.invalidUrl
         }
         
