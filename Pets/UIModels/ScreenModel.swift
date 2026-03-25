@@ -15,6 +15,8 @@ enum ComponentError: Error {
 enum ComponentType: String, Decodable {
     case featuredImage
     case carousel
+    case textRow
+    case ratingRow
 }
 
 /// 서버 Json의 개별 컴포넌트 원본 모델
@@ -64,13 +66,21 @@ extension ScreenModel {
                     throw ComponentError.decodingError
                 }
                 components.append(FeatureImageComponent(uiModel: uiModel))
-                
             case .carousel:
                 guard let uiModel: CarouselUIModel = component.data.decode() else {
                     throw ComponentError.decodingError
                 }
-                
                 components.append(CarouselComponent(uiModel: uiModel)) 
+            case .textRow:
+                guard let uiModel: TextRowUIModel = component.data.decode() else {
+                    throw ComponentError.decodingError
+                }
+                components.append(TextRowComponent(uiModel: uiModel))
+            case .ratingRow:
+                guard let uiModel: RatingRowUIModel = component.data.decode() else {
+                    throw ComponentError.decodingError
+                }
+                components.append(RatingRowComponent(uiModel: uiModel))
             }
         }
         return components

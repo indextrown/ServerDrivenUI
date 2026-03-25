@@ -13,6 +13,10 @@ struct Constants {
         // static let baseUrl = "localhost:3000"
         static let petListing = "pet-listing"
         
+        static func petDetail(petId: Int) -> String {
+            return "pet-detail/\(petId)"
+        }
+        
         // API endpoint 문자열을 받아서, 실제 요청에 사용할 URL 객체를 만들어주는 함수
         static func resource(for resourceName: String) -> URL? {
             var components = URLComponents()

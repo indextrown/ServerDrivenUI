@@ -10,6 +10,7 @@ import SwiftUI
 struct FeatureImageComponent: UIComponent {
     
     let uiModel: FeatureImageUIModel
+    let id = UUID()
     
     var uniqueId: String {
         return ComponentType.featuredImage.rawValue

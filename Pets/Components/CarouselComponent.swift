@@ -10,6 +10,7 @@ import SwiftUI
 struct CarouselComponent: UIComponent {
     
     let uiModel: CarouselUIModel
+    let id = UUID()
     
     var uniqueId: String {
         ComponentType.carousel.rawValue
